@@ -18,11 +18,19 @@ public class Chaudron {
 		force = random.nextInt(2, 7);
 	}
 	
-	public int getQuantitePotion() {
-		return quantitePotion;
+	public boolean restePotion() {
+		return quantitePotion != 0;
 	}
 	
 	public int getForce() {
 		return force;
+	}
+	
+	public int getQuantitePotion() {
+		return quantitePotion;
+	}
+	
+	public void prendrePotion() {
+		quantitePotion --;
 	}
 }

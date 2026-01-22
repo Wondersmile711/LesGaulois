@@ -1,10 +1,10 @@
 package personnages;
 
 public abstract class Personnage {
-	private String nom;
-	private int force;
+	protected String nom;
+	protected int force;
 
-	public Personnage(String nom, int force) {
+	protected Personnage(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 	}
@@ -34,5 +34,9 @@ public abstract class Personnage {
 		} else {
 			this.parler("Aïe");
 		}
+	}
+	
+	public boolean estATerre() {
+		return force == 0;
 	}
 }
