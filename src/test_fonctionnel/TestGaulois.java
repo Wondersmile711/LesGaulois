@@ -2,6 +2,7 @@ package test_fonctionnel;
 
 import personnages.Gaulois;
 import personnages.Romain;
+import personnages.Druide;
 
 public class TestGaulois {
 	public static void main(String[] args) {
@@ -17,5 +18,10 @@ public class TestGaulois {
 			minus.frapper(asterix);
 		}
 		asterix.frapper(minus);
+		
+		Druide panoramix = new Druide("Panoramix");
+		panoramix.fabriquerPotion(3);
+		panoramix.parler("J'ai concocté " + panoramix.getQuantitePotion() + " doses de potion magique. Elle a une force de " + panoramix.getForcePotion() + " .");
+		
 	}
 }
