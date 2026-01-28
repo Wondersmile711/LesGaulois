@@ -14,16 +14,20 @@ public abstract class Personnage {
 	}
 
 	public void parler(String texte) {
-		System.out.println(this.donnerAuteur() + nom + ": \"" + texte + "\".");
+		System.out.println("Le " + this.donnerAuteur() + nom + ": \"" + texte + "\".");
 	}
 
 	protected abstract String donnerAuteur();
 
 	public void frapper(Personnage adversaire) {
 		String nomPersonnage = adversaire.getNom();
-		System.out.println(this.donnerAuteur() + nom + " donne un grand coup au " + adversaire.donnerAuteur()
-				+ nomPersonnage + ".");
-		adversaire.recevoirCoup(force / 3);
+		System.out.println("Le " + this.donnerAuteur() + nom + " donne un grand coup de force " + force + " au "
+				+ adversaire.donnerAuteur() + nomPersonnage + ".");
+		adversaire.recevoirCoup(calculForceCoup());
+	}
+
+	protected int calculForceCoup() {
+		return force;
 	}
 
 	public void recevoirCoup(int forceCoup) {
@@ -35,7 +39,7 @@ public abstract class Personnage {
 			this.parler("Aïe");
 		}
 	}
-	
+
 	public boolean estATerre() {
 		return force == 0;
 	}

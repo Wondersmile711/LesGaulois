@@ -1,7 +1,7 @@
 package personnages;
 
 public class Gaulois extends Personnage {
-	private boolean potionBue = false;
+	private double effetPotion = 1;
 
 	public Gaulois(String nom, int force) {
 		super(nom, force);
@@ -9,24 +9,24 @@ public class Gaulois extends Personnage {
 
 	@Override
 	protected String donnerAuteur() {
-		return "Le gaulois ";
+		return "gaulois ";
 	}
-	
+
 	public void boirePotion(int forcePotion) {
-		force = force * forcePotion;	
+		effetPotion = forcePotion;
 	}
-	
+
 	@Override
-	public void frapper(Personnage adversaire) {
-		String nomPersonnage = adversaire.getNom();
-		System.out.println(this.donnerAuteur() + nom + " donne un grand coup au " + adversaire.donnerAuteur()
-				+ nomPersonnage + ".");
-		adversaire.recevoirCoup(force / 3);
-		if (potionBue && force > 1) {
-			force --;
+	protected int calculForceCoup() {
+		int forceCoup = (int) (force * effetPotion);
+		effetPotion -= 0.5;
+		if (effetPotion < 1) {
+			effetPotion = 1;
 		}
+		return forceCoup;
+
 	}
-	
+
 	public static void main(String[] args) {
 		Gaulois asterix = new Gaulois("Astérix", 8);
 		System.out.println(asterix.getNom());

@@ -1,9 +1,9 @@
 package personnages;
 
-public class Romain extends Personnage{
+public class Romain extends Personnage {
 
 	public Romain(String nom, int force) {
-		super(nom,force);
+		super(nom, force);
 	}
 
 	@Override
